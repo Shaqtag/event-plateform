@@ -3,165 +3,148 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion' // Use standard import
-
-// Animation variants for Framer Motion
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-}
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
-}
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const buttonHover = {
-  hover: { scale: 1.05, transition: { duration: 0.3 } },
-}
-
-const linkHover = {
-  hover: { scale: 1.05, color: '#2563EB', transition: { duration: 0.3 } }, // Matches hover:text-blue-600
-}
 
 export default function Contact() {
   return (
     <>
       <main>
-        <section className='bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10'>
-          <div className='wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0'>
-            <motion.div
-              className='flex flex-col justify-center gap-8'
-              variants={fadeInUp}
-              initial='hidden'
-              animate='visible'
-            >
-              <motion.h1 className='h1-bold' variants={fadeInUp}>
-                Get in Touch with Evently
-              </motion.h1>
-              <motion.p
-                className='p-regular-20 md:p-regular-24'
-                variants={fadeInUp}
+        <section className="bg-orange-50 bg-[url('/assets/images/african-pattern.png')] bg-contain py-8 md:py-12 animate-fade-in">
+          <div className='wrapper grid grid-cols-1 gap-8 md:grid-cols-2 2xl:gap-12'>
+            <div className='flex flex-col justify-center gap-8 animate-slide-up'>
+              <h1 className='h1-bold text-orange-700 font-ubuntu'>
+                Contactez Evently
+              </h1>
+              <p className='p-regular-20 md:p-regular-24 text-gray-700'>
+                Une question ou besoin d'aide ? Notre équipe est là pour vous
+                accompagner dans la planification et la célébration de vos
+                événements. Contactez-nous pour partager vos idées ou obtenir de
+                l'assistance !
+              </p>
+              <Button
+                size='lg'
+                asChild
+                className='button w-full sm:w-fit bg-orange-500 hover:bg-orange-600 text-white hover:scale-105 transition-transform duration-300'
               >
-                Have questions or need support? We're here to help you connect,
-                plan, and celebrate your events. Reach out to our team for
-                assistance or to share your ideas!
-              </motion.p>
-              <motion.div variants={fadeInUp} whileHover='hover'>
-                <Button size='lg' asChild className='button w-full sm:w-fit'>
-                  <Link href='/sign-in' aria-label='Join our community'>
-                    Join Our Community
-                  </Link>
-                </Button>
-              </motion.div>
-            </motion.div>
+                <Link href='/sign-in' aria-label='Rejoindre notre communauté'>
+                  Rejoignez notre communauté
+                </Link>
+              </Button>
+            </div>
 
-            <motion.div
-              variants={slideInRight}
-              initial='hidden'
-              animate='visible'
-            >
+            <div className='relative animate-scale-in'>
               <Image
-                src='/assets/images/contact.png'
-                alt='Contact Evently'
+                src='/assets/images/contact-african.png'
+                alt="Contactez l'équipe Evently"
                 width={1000}
                 height={1000}
-                className='max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]'
+                className='max-h-[70vh] object-contain object-center 2xl:max-h-[50vh] rounded-lg shadow-lg'
               />
-            </motion.div>
+              <div className='absolute inset-0 bg-orange-500 opacity-10 rounded-lg' />
+            </div>
           </div>
         </section>
 
-        <section className='wrapper my-8 flex flex-col gap-8 md:gap-12'>
-          <motion.h2
-            className='h2-bold'
-            variants={fadeInUp}
-            initial='hidden'
-            animate='visible'
-          >
-            Contact Us
-          </motion.h2>
-          <motion.div
-            className='flex flex-col gap-6'
-            variants={staggerContainer}
-            initial='hidden'
-            animate='visible'
-          >
-            <motion.div className='flex flex-col gap-2' variants={fadeInUp}>
-              <h3 className='h3-bold text-gray-800'>Email Us</h3>
-              <p className='p-regular-16 text-gray-600'>
-                Reach out to our support team at{' '}
-                <motion.span whileHover='hover' variants={linkHover}>
+        <section className='wrapper my-12 flex flex-col gap-10 md:gap-14 animate-fade-in'>
+          <h2 className='h2-bold text-orange-700 font-ubuntu'>
+            Nous contacter
+          </h2>
+          <div className='flex flex-col gap-8'>
+            <div
+              className='flex items-start gap-4 p-6 bg-white rounded-lg shadow-lg animate-slide-up'
+              style={{ animationDelay: '0ms' }}
+            >
+              <Image
+                src='/assets/icons/email.svg'
+                alt='Icône email'
+                width={24}
+                height={24}
+                className='mt-1'
+              />
+              <div>
+                <h3 className='h3-bold text-gray-800'>Envoyez-nous un email</h3>
+                <p className='p-regular-16 text-gray-600'>
+                  Contactez notre équipe à{' '}
                   <Link
                     href='mailto:support@evently.com'
-                    className='text-blue-600 hover:underline'
-                    aria-label='Email support'
+                    className='text-orange-500 hover:text-orange-600 hover:underline transition-colors duration-300'
+                    aria-label="Envoyer un email à l'équipe support"
                   >
                     support@evently.com
                   </Link>
-                </motion.span>
-              </p>
-            </motion.div>
-            <motion.div className='flex flex-col gap-2' variants={fadeInUp}>
-              <h3 className='h3-bold text-gray-800'>Follow Us</h3>
-              <div className='flex gap-4'>
-                <motion.span whileHover='hover' variants={linkHover}>
+                </p>
+              </div>
+            </div>
+            <div
+              className='flex items-start gap-4 p-6 bg-white rounded-lg shadow-lg animate-slide-up'
+              style={{ animationDelay: '200ms' }}
+            >
+              <Image
+                src='/assets/icons/social.svg'
+                alt='Icône réseaux sociaux'
+                width={24}
+                height={24}
+                className='mt-1'
+              />
+              <div>
+                <h3 className='h3-bold text-gray-800'>Suivez-nous</h3>
+                <div className='flex gap-4 mt-2'>
                   <Link
                     href='https://twitter.com/evently'
-                    className='text-base font-bold text-gray-800 hover:text-blue-600 px-2 py-1'
-                    aria-label='Follow on Twitter'
+                    className='text-orange-500 hover:text-orange-600 font-bold hover:underline transition-colors duration-300'
+                    aria-label='Suivre sur Twitter'
                   >
                     Twitter
                   </Link>
-                </motion.span>
-                <motion.span whileHover='hover' variants={linkHover}>
                   <Link
                     href='https://facebook.com/evently'
-                    className='text-base font-bold text-gray-800 hover:text-blue-600 px-2 py-1'
-                    aria-label='Follow on Facebook'
+                    className='text-orange-500 hover:text-orange-600 font-bold hover:underline transition-colors duration-300'
+                    aria-label='Suivre sur Facebook'
                   >
                     Facebook
                   </Link>
-                </motion.span>
-                <motion.span whileHover='hover' variants={linkHover}>
                   <Link
                     href='https://instagram.com/evently'
-                    className='text-base font-bold text-gray-800 hover:text-blue-600 px-2 py-1'
-                    aria-label='Follow on Instagram'
+                    className='text-orange-500 hover:text-orange-600 font-bold hover:underline transition-colors duration-300'
+                    aria-label='Suivre sur Instagram'
                   >
                     Instagram
                   </Link>
-                </motion.span>
+                </div>
               </div>
-            </motion.div>
-            <motion.div className='flex flex-col gap-2' variants={fadeInUp}>
-              <h3 className='h3-bold text-gray-800'>Visit Us</h3>
-              <p className='p-regular-16 text-gray-600'>
-                Evently Headquarters
-                <br />
-                123 Community Lane, Suite 456
-                <br />
-                San Francisco, CA 94105
-              </p>
-            </motion.div>
-          </motion.div>
-          <motion.div variants={fadeInUp} whileHover='hover'>
-            <Button size='lg' asChild className='button w-full sm:w-fit'>
-              <Link href='#events' aria-label='Explore events'>
-                Explore Events
-              </Link>
-            </Button>
-          </motion.div>
+            </div>
+            <div
+              className='flex items-start gap-4 p-6 bg-white rounded-lg shadow-lg animate-slide-up'
+              style={{ animationDelay: '400ms' }}
+            >
+              <Image
+                src='/assets/icons/location.svg'
+                alt='Icône localisation'
+                width={24}
+                height={24}
+                className='mt-1'
+              />
+              <div>
+                <h3 className='h3-bold text-gray-800'>Visitez-nous</h3>
+                <p className='p-regular-16 text-gray-600'>
+                  Siège d'Evently
+                  <br />
+                  123 Community Lane, Suite 456
+                  <br />
+                  San Francisco, CA 94105
+                </p>
+              </div>
+            </div>
+          </div>
+          <Button
+            size='lg'
+            asChild
+            className='button w-full sm:w-fit bg-orange-500 hover:bg-orange-600 text-white hover:scale-105 transition-transform duration-300 animate-slide-up'
+            style={{ animationDelay: '600ms' }}
+          >
+            <Link href='#events' aria-label='Explorer les événements'>
+              Explorer les événements
+            </Link>
+          </Button>
         </section>
       </main>
     </>

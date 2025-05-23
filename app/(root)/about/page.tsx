@@ -2,103 +2,119 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'About | Evently',
+  description:
+    'Learn about Evently, your go-to platform for hosting and discovering events that connect communities worldwide.',
+}
+
 export default function About() {
   return (
     <>
-      <section className='bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10'>
-        <div className='wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0'>
-          <div className='flex flex-col justify-center gap-8'>
-            <h1 className='h1-bold'>
-              About Evently: Connecting Communities Through Events
+      {/* Section Hero */}
+      <section className="bg-orange-50 bg-[url('/assets/images/african-pattern.png')] bg-contain py-8 md:py-12 animate-fade-in">
+        <div className='wrapper grid grid-cols-1 gap-8 md:grid-cols-2 2xl:gap-12'>
+          <div className='flex flex-col justify-center gap-8 animate-slide-up'>
+            <h1 className='h1-bold text-orange-700'>
+              À propos d'Evently : Unir les communautés à travers l'Afrique et
+              au-delà
             </h1>
-            <p className='p-regular-20 md:p-regular-24'>
-              Evently is your go-to platform for hosting, discovering, and
-              celebrating events that bring people together. With a global
-              community of over 3,168+ mentors and event organizers, we empower
-              individuals and organizations to create memorable experiences. Our
-              mission is to make event planning seamless and foster connections
-              across the world.
+            <p className='p-regular-20 md:p-regular-24 text-gray-700'>
+              Evently est votre plateforme pour organiser, découvrir et célébrer
+              des événements qui rassemblent les gens. Avec une communauté
+              mondiale de plus de 3 168 mentors et organisateurs, nous donnons
+              vie à des expériences mémorables. Notre mission est de simplifier
+              la planification d'événements et de tisser des liens culturels
+              vibrants, inspirés par l'énergie de l'Afrique.
             </p>
-            <Button size='lg' asChild className='button w-full sm:w-fit'>
-              <Link href='/sign-in'>Join Our Community</Link>
+            <Button
+              size='lg'
+              asChild
+              className='button w-full sm:w-fit bg-orange-500 hover:bg-orange-600 text-white hover:scale-105 transition-transform duration-300'
+            >
+              <Link href='/sign-in'>Rejoignez notre communauté</Link>
             </Button>
           </div>
 
-          <Image
-            src='/assets/images/about.png'
-            alt='About Evently'
-            width={1000}
-            height={1000}
-            className='max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]'
-          />
+          <div className='relative animate-scale-in'>
+            <Image
+              src='/assets/images/about-african.png'
+              alt="À propos d'Evently"
+              width={1000}
+              height={1000}
+              className='max-h-[70vh] object-contain object-center 2xl:max-h-[50vh] rounded-lg shadow-lg'
+            />
+            <div className='absolute inset-0 bg-orange-500 opacity-10 rounded-lg' />
+          </div>
         </div>
       </section>
 
-      <section className='wrapper my-8 flex flex-col gap-8 md:gap-12'>
-        <h2 className='h2-bold'>Our Mission & Vision</h2>
-        <p className='p-regular-20'>
-          At Evently, we believe in the power of events to build communities and
-          spark joy. Our platform provides tools to simplify event creation,
-          promotion, and management, so you can focus on what matters
-          most—connecting with others. Whether you're hosting a workshop,
-          conference, or celebration, Evently is here to support you every step
-          of the way.
+      {/* Section Mission & Vision */}
+      <section className='wrapper my-12 flex flex-col gap-10 md:gap-14 animate-fade-in'>
+        <h2 className='h2-bold text-orange-700'>Notre mission et vision</h2>
+        <p className='p-regular-20 text-gray-700'>
+          Chez Evently, nous célébrons la puissance des événements pour
+          renforcer les communautés et partager la joie. Inspirés par la
+          richesse culturelle africaine, nous offrons des outils pour simplifier
+          la création, la promotion et la gestion d'événements. Que ce soit un
+          atelier, une conférence ou une fête traditionnelle, Evently vous
+          accompagne à chaque étape avec une touche d'africtude.
         </p>
-        <Button size='lg' asChild className='button w-full sm:w-fit'>
-          <Link href='#events'>Explore Events</Link>
+        <Button
+          size='lg'
+          asChild
+          className='button w-full sm:w-fit bg-orange-500 hover:bg-orange-600 text-white hover:scale-105 transition-transform duration-300'
+        >
+          <Link href='/#events'>Explorer les événements</Link>
         </Button>
       </section>
 
-      <section className='wrapper my-8 flex flex-col gap-8 md:gap-12'>
-        <h2 className='h2-bold'>Meet Our Team</h2>
-        <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-          <div className='flex flex-col items-center gap-4 p-4 bg-white rounded-lg shadow-md'>
-            <Image
-              src='/assets/images/team-member1.png'
-              alt='Team Member 1'
-              width={150}
-              height={150}
-              className='rounded-full object-cover'
-            />
-            <h3 className='h3-bold text-gray-800'>Jane Doe</h3>
-            <p className='p-regular-16 text-gray-600'>Founder & CEO</p>
-            <p className='p-regular-14 text-gray-500 text-center'>
-              Jane leads Evently with a passion for connecting communities
-              through innovative event solutions.
-            </p>
-          </div>
-          <div className='flex flex-col items-center gap-4 p-4 bg-white rounded-lg shadow-md'>
-            <Image
-              src='/assets/images/team-member2.png'
-              alt='Team Member 2'
-              width={150}
-              height={150}
-              className='rounded-full object-cover'
-            />
-            <h3 className='h3-bold text-gray-800'>John Smith</h3>
-            <p className='p-regular-16 text-gray-600'>
-              Chief Technology Officer
-            </p>
-            <p className='p-regular-14 text-gray-500 text-center'>
-              John drives the technical vision, ensuring Evently's platform is
-              seamless and scalable.
-            </p>
-          </div>
-          <div className='flex flex-col items-center gap-4 p-4 bg-white rounded-lg shadow-md'>
-            <Image
-              src='/assets/images/team-member3.png'
-              alt='Team Member 3'
-              width={150}
-              height={150}
-              className='rounded-full object-cover'
-            />
-            <h3 className='h3-bold text-gray-800'>Emily Chen</h3>
-            <p className='p-regular-16 text-gray-600'>Head of Community</p>
-            <p className='p-regular-14 text-gray-500 text-center'>
-              Emily fosters our global community, empowering organizers to
-              create impactful events.
-            </p>
-          </div>
+      {/* Section Équipe */}
+      <section className='wrapper my-12 flex flex-col gap-10 md:gap-14 animate-fade-in'>
+        <h2 className='h2-bold text-orange-700'>Rencontrez notre équipe</h2>
+        <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+          {[
+            {
+              name: 'Aisha Diallo',
+              role: 'Fondatrice & PDG',
+              description:
+                'Aisha dirige Evently avec une passion pour connecter les communautés africaines à travers des événements innovants.',
+              image: '/assets/images/team-aisha.png',
+            },
+            {
+              name: 'Kwame Mensah',
+              role: 'Directeur Technologique',
+              description:
+                'Kwame façonne la vision technologique, rendant la plateforme Evently fluide et accessible.',
+              image: '/assets/images/team-kwame.png',
+            },
+            {
+              name: 'Fatima Sow',
+              role: 'Responsable Communauté',
+              description:
+                'Fatima anime notre communauté mondiale, inspirant des événements vibrants et inclusifs.',
+              image: '/assets/images/team-fatima.png',
+            },
+          ].map((member, index) => (
+            <div
+              key={member.name}
+              className='flex flex-col items-center gap-4 p-6 bg-white rounded-lg shadow-lg border-t-4 border-orange-500 hover:scale-105 transition-transform duration-300 animate-slide-up'
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={150}
+                height={150}
+                className='rounded-full object-cover border-4 border-orange-300'
+              />
+              <h3 className='h3-bold text-gray-800'>{member.name}</h3>
+              <p className='p-regular-16 text-orange-600'>{member.role}</p>
+              <p className='p-regular-14 text-gray-600 text-center'>
+                {member.description}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </>
